@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: gaebusiness
+Version: 4.5.2
+Summary: Micro Architecture for Business Layer on Google App Engine
+Home-page: https://github.com/renzon/gaebusiness
+Author: Renzo Nuccitelli
+Author-email: renzo.n@gmail.com
+License: BSD
+Description: https://github.com/renzon/gaebusiness
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Framework :: Paste

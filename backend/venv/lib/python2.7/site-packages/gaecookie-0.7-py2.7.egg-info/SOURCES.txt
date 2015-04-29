@@ -1,0 +1,16 @@
+setup.cfg
+setup.py
+gaecookie/__init__.py
+gaecookie/cookie.py
+gaecookie/decorator.py
+gaecookie/facade.py
+gaecookie/manager.py
+gaecookie/middleware.py
+gaecookie/model.py
+gaecookie/security.py
+gaecookie.egg-info/PKG-INFO
+gaecookie.egg-info/SOURCES.txt
+gaecookie.egg-info/dependency_links.txt
+gaecookie.egg-info/not-zip-safe
+gaecookie.egg-info/requires.txt
+gaecookie.egg-info/top_level.txt

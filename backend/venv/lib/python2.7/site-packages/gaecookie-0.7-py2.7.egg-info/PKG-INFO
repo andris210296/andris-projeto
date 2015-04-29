@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: gaecookie
+Version: 0.7
+Summary: A library for signing string and validating cookies. cd ..
+Home-page: https://github.com/renzon/gaecookie
+Author: Renzo Nuccitelli
+Author-email: renzo.n@gmail.com
+License: BSD
+Description: https://github.com/renzon/gaecookie
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Framework :: Paste

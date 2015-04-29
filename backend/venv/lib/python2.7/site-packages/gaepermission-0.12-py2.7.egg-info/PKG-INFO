@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: gaepermission
+Version: 0.12
+Summary: Tekton app to handle user login and permissions based on groups and holes
+Home-page: https://github.com/renzon/gaepermission
+Author: Renzo Nuccitelli
+Author-email: renzo.n@gmail.com
+License: BSD
+Description: https://github.com/renzon/gaepermission
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Framework :: Paste

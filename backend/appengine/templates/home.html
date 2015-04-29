@@ -1,0 +1,147 @@
+{% extends 'andris/base.html' %}
+
+{% block coluna %}
+{% endblock %}
+
+
+
+
+
+
+{% block body %}
+
+
+    <div class="container" xmlns="http://www.w3.org/1999/html">
+
+
+
+        <div id="carousel-example-generic" class="carousel slide hidden-xs" data-ride="carousel">
+
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div class="row">
+
+                        {% for i in range (3) %}
+
+
+                            <div class="col-sm-4">
+                                <div class="col-item">
+                                    <a  href="/andris/produto?produto=produto{{ i }}">
+                                        <img  href="/andris/produto?produto=produto{{ i }}" src="../static/img/fotonaodisponivel.jpg" class="img-responsive" alt="" />
+                                    </a>
+                                    <div class="info">
+                                        <div class="row">
+                                            <div class="price col-md-6">
+                                                <h5>
+                                                    Produto {{ i }}</h5>
+                                                <h5 class="price-text-color">
+                                                    R${{ i * 3 }},99</h5>
+                                            </div>
+                                            <div class="rating hidden-sm col-md-6">
+                                                <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+                                            </i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+                                            </i><i class="fa fa-star"></i>
+                                            </div>
+                                        </div>
+
+                                        {{ form_button('Detalhes','submit','btn-default','btn-md','glyphicon glyphicon-exclamation-sign') }}
+
+                                        {{ form_button('Adicionar ao carrinho','submit','btn-default','btn-md','fa fa-shopping-cart') }}
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+
+
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="row">
+
+                         {% for i in range (3) %}
+
+
+                            <div class="col-sm-4">
+                                <div class="col-item">
+                                    <a  href="/andris/produto?produto=produto{{ i }}">
+                                        <img  href="/andris/produto?produto=produto{{ i }}" src="../static/img/fotonaodisponivel.jpg" class="img-responsive" alt="" />
+                                    </a>
+                                    <div class="info">
+                                        <div class="row">
+                                            <div class="price col-md-6">
+                                                <h5>
+                                                    Produto {{ i }}</h5>
+                                                <h5 class="price-text-color">
+                                                    R${{ i * 3 }},99</h5>
+                                            </div>
+                                            <div class="rating hidden-sm col-md-6">
+                                                <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+                                            </i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+                                            </i><i class="fa fa-star"></i>
+                                            </div>
+                                        </div>
+
+                                        {{ form_button('Detalhes','submit','btn-default','btn-md','glyphicon glyphicon-exclamation-sign') }}
+
+                                        {{ form_button('Adicionar ao carrinho','submit','btn-default','btn-md','fa fa-shopping-cart') }}
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="container xxl-padding">
+            <h2 class="text-center xxl-b-margin">Inicie suas compras escolhendo uma das categorias abaixo</h2>
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="row l-b-margin">
+
+                        {% for categoria in categoria_lista %}
+
+                            <div class="col-md-4">
+                                <div class="well well-white">
+
+                                    <a  href="/andris/categoria?categoria={{ categoria.nomeCategoria }}">
+
+                                        <img  alt="R Programming" class="center-block l-b-margin img-circle " height="100" src="../static/img/fotonaodisponivel.jpg" width="100" />
+                                    </a>
+
+                                    <h6 style="text-align:center; font-size:21px"><b>{{ categoria.nomeCategoria }}</b></h6>
+                                    <p class="text-space l-b-margin">Principais informações sobre esta categoria</p>
+                                    <!--   <a class="rounded-button cta-border-button center-block m-button" href="/andris/categoria?categoria=categoria{{ i }}">Veja mais !</a> -->
+
+
+                                    {{ form_button_href('Explorar!','btn-default','btn-lg btn-block','',"/andris/categoria?categoria="+categoria.nomeCategoria ) }}
+
+
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+{% endblock %}

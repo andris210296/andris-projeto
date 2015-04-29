@@ -1,0 +1,9 @@
+setup.cfg
+setup.py
+mommygae/__init__.py
+mommygae/mommy.py
+mommygae.egg-info/PKG-INFO
+mommygae.egg-info/SOURCES.txt
+mommygae.egg-info/dependency_links.txt
+mommygae.egg-info/not-zip-safe
+mommygae.egg-info/top_level.txt

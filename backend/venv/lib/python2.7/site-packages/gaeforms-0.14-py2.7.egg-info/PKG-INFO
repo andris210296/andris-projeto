@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: gaeforms
+Version: 0.14
+Summary: A automated form validation and transformation based on App Engine Models
+Home-page: https://github.com/renzon/gaeforms
+Author: Renzo Nuccitelli
+Author-email: renzo.n@gmail.com
+License: BSD
+Description: https://github.com/renzon/gaeforms
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Framework :: Paste

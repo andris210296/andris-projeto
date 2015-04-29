@@ -1,0 +1,222 @@
+{% extends 'andris/base.html' %}
+
+{% block coluna %}
+{% endblock %}
+
+
+
+
+
+
+{% block body %}
+
+
+
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel with-nav-tabs panel-default">
+                <div class="panel-heading">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tab1default" data-toggle="tab">Aparência</a></li>
+                        <li><a href="#tab2default" data-toggle="tab">Categorias</a></li>
+
+
+
+                    </ul>
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="tab1default">
+
+
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading resume-heading">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="col-xs-12 col-sm-3">
+
+                                                <label>Logotipo da Loja</label>
+
+                                                <a href="#" class="thumbnail">
+                                                    <img src="../static/img/fotonaodisponivel.jpg" alt="...">
+                                                </a>
+
+                                                <p class="btn-add">
+
+                                                    <button type="button" class="btn btn-default">
+                                                        <span class="fa fa-file-image-o" aria-hidden="true"></span> Carregar
+                                                    </button>
+
+                                                </p>
+
+
+
+                                                <label>Jumbotron</label>
+
+                                                <a href="#" class="thumbnail">
+                                                    <img src="../static/img/fotonaodisponivel.jpg" alt="...">
+                                                </a>
+
+                                                <p class="btn-add">
+
+                                                    <button type="button" class="btn btn-default">
+                                                        <span class="fa fa-file-image-o" aria-hidden="true"></span> Carregar
+                                                    </button>
+
+                                                </p>
+
+
+
+                                            </div>
+
+
+
+
+
+                                            <div class="col-xs-12 col-sm-8">
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-10  col-md-offset-1 ">
+
+
+                                                        {{ form_input('Nome da Loja','nomeLoja','Minha Loja','','glyphicon glyphicon-briefcase') }}
+
+                                                        {{ form_input('Frase','frase','Minha Loja é','','fa fa-pencil') }}
+
+                                                        {{ form_input('Frase do Jumbotron','fraseJumbo','Informações gerais sobre a Loja','','fa fa-pencil') }}
+
+                                                        {{ form_input('Link Facebook','linkFacebook','Facebook','','fa fa-facebook-square') }}
+
+                                                        {{ form_input('Link Twitter','linkTwitter','Twitter','','fa fa-twitter') }}
+
+                                                        {{ form_input('Link Google+','linkGoogle+','Google+','','fa fa-google-plus') }}
+
+                                                        {{ form_input('Link GitHub','linkGitHub','GitHub','','fa fa-github') }}
+
+
+
+                                                        <div class="form-group">
+                                                            <input type="submit" class="btn btn-lg btn-default btn-block" value="Salvar">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <style type="text/css">
+                                .btn span.glyphicon {
+                                    opacity: 0;
+                                }
+                                .btn.active span.glyphicon {
+                                    opacity: 1;
+                                }
+
+                            </style>
+
+
+                            <div class="well well-sm text-center">
+
+                                <h3>Cor Principal</h3>
+
+                                <div class="btn-group" data-toggle="buttons">
+
+                                    <label class="btn btn-success active">
+                                        <input type="radio" name="options" id="option2" autocomplete="off" chacked>
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                    </label>
+
+                                    <label class="btn btn-primary">
+                                        <input type="radio" name="options" id="option1" autocomplete="off">
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                    </label>
+
+                                    <label class="btn btn-info">
+                                        <input type="radio" name="options" id="option2" autocomplete="off">
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                    </label>
+
+                                    <label class="btn btn-default">
+                                        <input type="radio" name="options" id="option2" autocomplete="off">
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                    </label>
+
+                                    <label class="btn btn-warning">
+                                        <input type="radio" name="options" id="option2" autocomplete="off">
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                    </label>
+
+                                    <label class="btn btn-danger">
+                                        <input type="radio" name="options" id="option2" autocomplete="off">
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                    </label>
+
+                                </div>
+
+
+                            </div>
+
+
+
+                        </div>
+                        <div class="tab-pane fade" id="tab2default">
+
+                            <div class="well">
+
+                                <form action="{{ salvar_path }}" method="post" role="form">
+                                    {{ csrf_input() }}
+
+                                    {{ form_input('Nome da Categoria','nomeCategoria','','','fa fa-bars') }}
+
+                                    {{ form_button('Salvar','submit','btn-default','','fa fa-plus-square') }}
+
+<!--teste>
+
+                                </form>
+
+                            </div>
+
+                            <h3>Lista de Categorias</h3>
+
+
+
+                            <table class="table table-striped table-bordered">
+
+                                <tbody>
+
+                                {% for cat in categoria_lista %}
+
+
+                                    <tr>
+                                        <td>{{ cat.nomeCategoria }}</td>
+                                        <td>{{ form_button_href('Alterar','btn-success','btn-sm','fa fa-exchange',cat.editar_path)}}</td>
+                                        <td><form action="{{ cat.deletar_path }}" method="post">
+                                            {{ csrf_input() }}
+                                            {{ form_button('Deletar','submit','btn-danger','btn-sm','fa fa-trash')}}
+                                        </form></td>
+                                    </tr>
+                                {% endfor %}
+
+                                </tbody>
+
+                            </table>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: gaegraph
+Version: 3.8
+Summary: Graph Model on Google App Engine based on GraphAPI from Facebook
+Home-page: https://github.com/renzon/gaegraph
+Author: Renzo Nuccitelli
+Author-email: renzo.n@gmail.com
+License: BSD
+Description: https://github.com/renzon/gaegraph
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Framework :: Paste

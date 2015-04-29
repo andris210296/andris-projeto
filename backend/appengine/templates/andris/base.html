@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+{% macro csrf_input() %}
+    <input type="hidden" value="{{ _csrf_code }}" name="_csrf_code"/>
+{% endmacro %}
+{% macro form_input(label,property,value,error_msg,icon) %}
+    <div class="form-group {{ ' has-error' if error_msg }}">
+        <label for="{{ property }}Input" class="control-label">{{ label }} </label>
+
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="{{ icon }}"></i>
+            </span>
+            <input id="{{ property }}Input" type="text" class="form-control" name="{{ property }}" value="{{ value }}"/>
+
+        </div>
+        {% if error_msg %}<span class="help-block">{{ error_msg }}</span>{% endif %}
+    </div>
+{% endmacro %}
+
+{% macro form_button(label,type,color,size,icon) %}
+    <button type="{{ type }}" class="btn {{ color }} {{ size }}">
+        <span class="{{ icon }}" aria-hidden="true"></span> {{ label }}
+    </button>
+
+{% endmacro %}
+
+{% macro form_button_href(label,color,size,icon,reference) %}
+    <a class="btn {{ color }} {{ size }}" href="{{ reference }}" >
+                <i class="{{ icon }}"></i> {{ label }}
+    </a>
+
+{% endmacro %}
+
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" src="../static/img/fotonaodisponivel.jpg">
+
+    <title>Minha Loja</title>
+    <!-- Bootstrap -->
+
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/default.css" rel="stylesheet">
+    <link href="/static/bootstrap/css/bootstrap-social.css" rel="stylesheet">
+
+    <link href="/static/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/font-awesome-4.2.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+
+
+
+
+
+
+    <style>
+        .pad8 {
+            margin: 8px 15px;
+            color: #777
+        }
+
+
+
+
+
+    </style>
+    <script src="/static/jquery/js/jquery-1.11.1.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    {% block css %}{% endblock %}
+    {% block js %}{% endblock %}
+</head>
+
+
+
+
+
+
+<body>
+<div class="navbar-wrapper">
+    <div class="navbar navbar-default navbar-static-top">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                <img src="../static/img/fotonaodisponivel.jpg"  height="30px" width="80px" >
+            </a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+
+                <li>
+                    <a href="/"><i class="fa fa-home"></i> Home</a>
+                </li>
+                <li>
+
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Categoria"><i class="fa fa-bars"></i> Categorias<b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+
+
+
+                            {% for categoria in categoria_lista %}
+
+                                <li>
+                                    <a href="/andris/categoria?categoria={{ categoria.nomeCategoria }}"><i class="fa fa-angle-right"></i>{{ categoria.nomeCategoria }}</a>
+                                </li>
+
+                            {% endfor %}
+
+
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="glyphicon glyphicon-thumbs-up"></i> Sobre Nós</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-phone"></i> Contato</a>
+                </li>
+
+                {% if _logged_user and 'ADMIN' in _logged_user.groups %}
+                    <li {{ 'class=active' if tab=='ADMIN' }}><a href="/andris/admin"><i class="fa fa-cogs"></i>{% trans %} Gerenciamento{% endtrans %}</a>
+                    </li>
+                {% endif %}
+
+
+
+
+
+
+
+
+
+
+            </ul>
+            <div class="nav navbar-nav pull-right pad8">
+                {% if _logged_user %}
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                                data-toggle="dropdown">
+                            {{ _logged_user.name }}
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/account">{% trans %}Account{% endtrans %}</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation">
+                                <form action="{{ _logout_path }}" method="post" class="text-center">
+                                    <button class="btn btn-danger" type="submit">{% trans %}
+                                        Logout{% endtrans %}</button>
+                                    {{ csrf_input() }}
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                {% else %}
+                    <a class="btn btn-success" href="{{ _login_path }}">{% trans %}Login{% endtrans %}</a>
+
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% block jumbotron %}
+
+    <header class="jumbotron" id="overview">
+        <div class="container">
+            <h1>Minha Loja</h1>
+            <p class="lead">Informações gerais sobre sua loja online</p>
+            <p class="lead">Aqui você pode adicionar uma imagem</p>
+            <div id="carbonads-container"><div class="carbonad"></div></div>
+        </div>
+    </header>
+
+{% endblock %}
+
+<div class="container">
+    <div class="row clearfix">
+
+        {% block coluna %}
+
+            <div class="col-md-2 column">
+
+
+
+                <ul class="nav nav-sidebar hidden-xs">
+
+                    {% for categoria in categoria_lista %}
+
+                        <li><a  href="/andris/categoria?categoria={{ categoria.nomeCategoria }}" class="list-group-item default">
+                            <span class="badge">{{ 3 }}</span>{{ categoria.nomeCategoria }}</a>
+
+
+                        </li>
+
+                    {% endfor %}
+
+                </ul>
+
+
+            </div>
+
+
+        {%  endblock %}
+
+
+        <div class="col-md-10 column">
+
+            {% block body %}
+
+
+            {% endblock %}
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="footer">
+    <div class="container">
+
+
+
+
+        <div class="pull-right">
+
+            <div class="btn-toolbar" role="toolbar" aria-label="...">
+                <a class="btn btn-social-icon btn-twitter">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a class="btn btn-social-icon btn-facebook">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a class="btn btn-social-icon btn-google-plus">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+
+                <a class="btn btn-social-icon btn-github">
+                    <i class="fa fa-github"></i>
+                </a>
+
+            </div>
+        </div>
+
+        <span class="copyright">© Copyright 2015 Sua Loja S.A.</span>
+
+
+    </div>
+</div>
+</body>
+</html>

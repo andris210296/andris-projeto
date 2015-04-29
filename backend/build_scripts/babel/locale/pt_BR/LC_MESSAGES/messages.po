@@ -1,0 +1,434 @@
+# Portuguese (Brazil) translations for PROJECT.
+# Copyright (C) 2014 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-02-25 18:58-0300\n"
+"PO-Revision-Date: 2014-06-26 00:13-0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: pt_BR <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.3\n"
+
+#: ../../appengine/templates/home.html:11
+#: ../../appengine/templates/multitenant/home.html:11
+msgid "A Full-Stack project for Google App Engine"
+msgstr "Um andris-projeto Full-Stack para o Google App Engine"
+
+#: ../../appengine/templates/home.html:19
+#: ../../appengine/templates/multitenant/home.html:20
+msgid ""
+"Create CRUD code on\n"
+"                        <a href=\"https://cloud.google.com/products/app-"
+"engine/\">App Engine</a>"
+msgstr ""
+"Crie código CRUD no  <a href=\"https://cloud.google.com/products/app-"
+"engine/\">App Engine</a>"
+
+#: ../../appengine/templates/home.html:25
+#: ../../appengine/templates/multitenant/home.html:26
+msgid ""
+" Check Courses App\n"
+"                            Out"
+msgstr "Veja a App de Cursos"
+
+#: ../../appengine/templates/home.html:32
+#: ../../appengine/templates/multitenant/home.html:33
+#, fuzzy
+msgid "Tekton is open source."
+msgstr "O código do Tekton é aberto. "
+
+#: ../../appengine/templates/home.html:37
+#: ../../appengine/templates/multitenant/home.html:38
+msgid "Check Git Hub Out"
+msgstr "Confira no GitHub"
+
+#: ../../appengine/templates/admin/home.html:5
+msgid "Administration Panel"
+msgstr "Painel de Administração"
+
+#: ../../appengine/templates/admin/home.html:8
+msgid "Security Paths Table"
+msgstr "Tabela de Segurança de Paths"
+
+#: ../../appengine/templates/admin/home.html:11
+msgid " Configurations"
+msgstr " Configurações"
+
+#: ../../appengine/templates/admin/home.html:13
+msgid " User Permissions"
+msgstr " Permissões de Usuários"
+
+#: ../../appengine/templates/admin/home.html:14
+msgid "Facebook App Data"
+msgstr "Dados de App do Facebook"
+
+#: ../../appengine/templates/admin/home.html:15
+msgid "Passwordless App Data"
+msgstr "Dados de App do Passwordless"
+
+#: ../../appengine/templates/base/400.html:6
+msgid "Sorry, an error happened and we are investigating"
+msgstr "Desculpe, um erro ocorreu e estamos investigando."
+
+#: ../../appengine/templates/base/404.html:6
+msgid "Sorry, page not found"
+msgstr "Desculpe, página não encontrada"
+
+#: ../../appengine/templates/base/base.html:56
+msgid "Courses"
+msgstr "Cursos"
+
+#: ../../appengine/templates/base/base.html:59
+msgid "Admin"
+msgstr "Admin"
+
+#: ../../appengine/templates/base/base.html:76
+msgid "Account"
+msgstr "Conta"
+
+#: ../../appengine/templates/base/base.html:80
+#, fuzzy
+msgid ""
+"\n"
+"                                        Logout"
+msgstr "Sair"
+
+#: ../../appengine/templates/base/base.html:88
+msgid "Login"
+msgstr "Login"
+
+#: ../../appengine/templates/login/home.html:13
+msgid "Login Options"
+msgstr "Opções de Login"
+
+#: ../../appengine/templates/login/home.html:25
+msgid "Type your email"
+msgstr "Digite seu Email"
+
+#: ../../appengine/templates/login/pending.html:6
+msgid "Security Information"
+msgstr "Informação de Segurança"
+
+#: ../../appengine/templates/login/pending.html:8
+#, python-format
+msgid ""
+"The email provided by %(provider)s is already in use. For your security, "
+"we are going to\n"
+"                    send an email to %(email)s to ensure it is yours."
+msgstr ""
+"O email fornecido pelo %(provider)s já está em uso. Para sua segurança, "
+"enviaremos um email de login para %(email)s para assegurar que ele é seu."
+
+#: ../../appengine/templates/login/pending.html:11
+msgid "This security procedure will be necessary only this time."
+msgstr "Esse procedimento de segurança só será necessário essa vez."
+
+#: ../../appengine/templates/login/pending.html:13
+#: ../../appengine/templates/login/passwordless/home.html:11
+msgid "Check your spam box, once some providers can filter this email."
+msgstr "Cheque sua caixa de spam pois alguns provedores podem filtrar esse email."
+
+#: ../../appengine/templates/login/facebook/form.html:6
+msgid "Facebook App Form"
+msgstr "Formulário de Aplicação do Facebook"
+
+#: ../../appengine/templates/login/facebook/form.html:8
+msgid "This data is used to proceed Facebook login. More information in"
+msgstr ""
+"Esses dados são necessáŕios para implementar o login com Facebook. Mais "
+"informações em"
+
+#: ../../appengine/templates/login/facebook/form.html:10
+msgid "Facebook Login Docs"
+msgstr "Documentação de Login com Facebook"
+
+#: ../../appengine/templates/login/facebook/form.html:14
+#: ../../appengine/templates/login/passwordless/form.html:14
+msgid "Type the app's id"
+msgstr "Digite o id da aplicação"
+
+#: ../../appengine/templates/login/facebook/form.html:16
+#: ../../appengine/templates/login/passwordless/form.html:16
+msgid "Type the app's token"
+msgstr "Digite o token da aplicação"
+
+#: ../../appengine/templates/login/facebook/form.html:18
+#: ../../appengine/templates/login/passwordless/form.html:18
+#: ../../appengine/templates/permission/account_form.html:36
+msgid "Save"
+msgstr "Salvar"
+
+#: ../../appengine/templates/login/passwordless/form.html:6
+msgid "Passworless App Form"
+msgstr "Formulário de Aplicação Passworless"
+
+#: ../../appengine/templates/login/passwordless/form.html:8
+msgid "This data is used to proceed passswordless login. More information in"
+msgstr ""
+"Esses dados são necessáŕios para implementar o login por email. Mais "
+"informações em"
+
+#: ../../appengine/templates/login/passwordless/home.html:6
+msgid "Login Email Instructions"
+msgstr "Instruções de Login por Email"
+
+#: ../../appengine/templates/login/passwordless/home.html:8
+msgid ""
+"We will send you an email with the login link using\n"
+"                    <a "
+"href=\"https://pswdless.appspot.com/\">Passwordless</a>."
+msgstr ""
+"Enviaremos um email para você contendo o link para login. Ele será "
+"enviado através do serviço  <a "
+"href=\"https://pswdless.appspot.com/\">Passwordless</a>."
+
+#: ../../appengine/templates/permission/account_form.html:11
+msgid "Your Account"
+msgstr "Sua Conta"
+
+#: ../../appengine/templates/permission/account_form.html:15
+msgid "Name"
+msgstr "Nome"
+
+#: ../../appengine/templates/permission/account_form.html:17
+msgid "Language"
+msgstr "Idioma"
+
+#: ../../appengine/templates/permission/account_form.html:29
+msgid "Time Zone"
+msgstr "Fuso Horário"
+
+#: ../../appengine/templates/permission/admin.html:41
+msgid "Users Table"
+msgstr "Tabela de Usuários"
+
+#: ../../appengine/templates/permission/home.html:6
+msgid "Security Table"
+msgstr "Tabela de Segurança"
+
+#: ../../appengine/templates/permission/home.html:10
+msgid "Path"
+msgstr "Path"
+
+#: ../../appengine/templates/permission/home.html:11
+msgid "Allowed Groups"
+msgstr "Grupos Permitidos"
+
+#: ../../appengine/templates/permission/home.html:12
+msgid ""
+"<a href=\"http://pt.wikipedia.org/wiki/Cross-"
+"site_request_forgery\">CSRF</a> Security"
+msgstr ""
+"Segurança <a href=\"http://pt.wikipedia.org/wiki/Cross-"
+"site_request_forgery\">CSRF</a>"
+
+#: ../../appengine/templates/permission/home.html:22
+msgid "Secure"
+msgstr "Seguro"
+
+#: ../../appengine/templates/permission/home.html:22
+msgid "Unsecure"
+msgstr "Inseguro"
+
+#: ../../appengine/templates/updown/home.html:7
+msgid "File Upload Form"
+msgstr "Formulário de Upload de Arquivo"
+
+#: ../../appengine/templates/updown/home.html:12
+msgid "Choose a file"
+msgstr "Escolha um arquivo"
+
+#: ../../appengine/templates/updown/home.html:15
+msgid "Upload"
+msgstr "Carregar"
+
+#: ../../appengine/templates/updown/ok.html:7
+msgid "File Upload Finished"
+msgstr "Upload de Arquivo Finalizado"
+
+#: ../../venv/lib/python2.7/site-packages/gaeforms/base.py:48
+#, python-format
+msgid "Must be one of: %(choices)s"
+msgstr "Deve ser um das opções: %(choices)s"
+
+#: ../../venv/lib/python2.7/site-packages/gaeforms/base.py:53
+msgid "Required field"
+msgstr "Campo obrigatório"
+
+#: ../../venv/lib/python2.7/site-packages/gaeforms/base.py:134
+#, fuzzy, python-format
+msgid "Has %(len)s characters and it must have exactly %(exactly_len)s"
+msgstr "Possui %(len)s caracteres  e deve ter menos de %(exactly_len)s"
+
+#: ../../venv/lib/python2.7/site-packages/gaeforms/base.py:137
+#, fuzzy, python-format
+msgid "Has %(len)s characters and it must have %(max_len)s or less"
+msgstr "Possui %(len)s caracteres  e deve ter menos de %(max_len)s"
+
+#: ../../venv/lib/python2.7/site-packages/gaeforms/base.py:140
+#, fuzzy, python-format
+msgid "Has %(len)s characters and it must have %(min_len)s or more"
+msgstr "Possui %(len)s caracteres  e deve ter menos de %(min_len)s"
+
+#: ../../venv/lib/python2.7/site-packages/gaeforms/base.py:149
+msgid "Invalid email"
+msgstr "E-mail inválido"
+
+#: ../../venv/lib/python2.7/site-packages/gaeforms/base.py:173
+msgid "Key's kind should be defined"
+msgstr "Tipo de chave deve ser definida"
+
+#: ../../venv/lib/python2.7/site-packages/gaeforms/base.py:178
+#, fuzzy
+msgid "Invalid key"
+msgstr "E-mail inválido"
+
+#: ../../venv/lib/python2.7/site-packages/gaeforms/base.py:225
+#: ../../venv/lib/python2.7/site-packages/gaeforms/base.py:285
+#: ../../venv/lib/python2.7/site-packages/gaeforms/base.py:332
+#, python-format
+msgid "Must be greater than %(lower)s"
+msgstr "Deve ser maior que %(lower)s"
+
+#: ../../venv/lib/python2.7/site-packages/gaeforms/base.py:227
+#: ../../venv/lib/python2.7/site-packages/gaeforms/base.py:287
+#: ../../venv/lib/python2.7/site-packages/gaeforms/base.py:334
+#, python-format
+msgid "Must be less than %(upper)s"
+msgstr "Deve ser menor que %(upper)s"
+
+#: ../../venv/lib/python2.7/site-packages/gaeforms/base.py:230
+msgid "Must be integer"
+msgstr "Deve ser inteiro"
+
+#: ../../venv/lib/python2.7/site-packages/gaeforms/base.py:253
+#: ../../venv/lib/python2.7/site-packages/gaeforms/ndb/field.py:10
+msgid "Must be true or false"
+msgstr "Deve ser verdadeiro ou falso"
+
+#: ../../venv/lib/python2.7/site-packages/gaeforms/base.py:290
+#: ../../venv/lib/python2.7/site-packages/gaeforms/base.py:337
+msgid "Must be a number"
+msgstr "Deve ser um número"
+
+#: ../../venv/lib/python2.7/site-packages/gaeforms/base.py:371
+#, python-format
+msgid "Invalid date. Must be on format %(format)s"
+msgstr "Data inválida. Deve estar no formato %(format)s"
+
+#: ../../venv/lib/python2.7/site-packages/gaeforms/base.py:371
+#: ../../venv/lib/python2.7/site-packages/gaeforms/base.py:377
+msgid "MM/dd/YYYY"
+msgstr "dd/MM/YYYY"
+
+#: ../../venv/lib/python2.7/site-packages/gaeforms/base.py:411
+#, python-format
+msgid "Invalid datetime. Must be on format %(format)s"
+msgstr "Datahora inválida. Deve estar no formato %(format) s"
+
+#: ../../venv/lib/python2.7/site-packages/gaeforms/base.py:411
+#: ../../venv/lib/python2.7/site-packages/gaeforms/base.py:416
+msgid "MM/dd/YYYY HH:mm:ss"
+msgstr "dd/MM/YYYY HH:mm:ss"
+
+#: ../../venv/lib/python2.7/site-packages/gaeforms/base.py:482
+msgid "CEP must have exactly 8 characters"
+msgstr "CEP deve ter exatamente 8 caracteres"
+
+#: ../../venv/lib/python2.7/site-packages/gaeforms/base.py:486
+msgid "CEP must contain only numbers"
+msgstr "CEP deve conter apenas números"
+
+#~ msgid "Set your permission do ADMIN and play around"
+#~ msgstr ""
+
+#~ msgid "Start Date"
+#~ msgstr "Data de Início"
+
+#~ msgid "This is a generic home for course_app "
+#~ msgstr "Esta é uma home genérica para app de Cursos "
+
+#~ msgid "List of Courses"
+#~ msgstr "Lista de Cursos"
+
+#~ msgid "D"
+#~ msgstr "Id"
+
+#~ msgid "F"
+#~ msgstr ""
+
+#~ msgid "I"
+#~ msgstr ""
+
+#~ msgid "Price"
+#~ msgstr "Preço"
+
+#~ msgid "Start"
+#~ msgstr ""
+
+#~ msgid "Name"
+#~ msgstr "Nome"
+
+#~ msgid "Course Form"
+#~ msgstr "Formulário de Curso"
+
+#~ msgid "Create New Course"
+#~ msgstr "Criar Novo Curso"
+
+#~ msgid "Id"
+#~ msgstr "Id (identificador)"
+
+#~ msgid "Creation"
+#~ msgstr "Criação"
+
+#~ msgid "Are you sure to delete? Press cancel to avoid deletion."
+#~ msgstr ""
+
+#~ msgid "Must be one of: %(choices)s"
+#~ msgstr "Deve ser um dos seguintes: %(choices)s"
+
+#~ msgid "Required field"
+#~ msgstr "Campo obrigatório"
+
+#~ msgid "Has %(len)s characters and it must have less than %(max_len)s"
+#~ msgstr "Possui %(len)s caracteres e deve ter menos de 500"
+
+#~ msgid "Invalid email"
+#~ msgstr "E-mail inválido"
+
+#~ msgid "Must be greater than %(lower)s"
+#~ msgstr "Deve ser maior que %(lower)s"
+
+#~ msgid "Must be less than %(upper)s"
+#~ msgstr "Deve ser menor que %(upper)s"
+
+#~ msgid "Must be integer"
+#~ msgstr "Deve ser um número inteiro"
+
+#~ msgid "Must be a number"
+#~ msgstr "Deve ser um número"
+
+#~ msgid "Invalid date. Must be on format %(format)s"
+#~ msgstr "Data inválida. Deve ser em formato %(format)s"
+
+#~ msgid "MM/dd/YYYY"
+#~ msgstr "dd/MM/YYYY"
+
+#~ msgid "Invalid datetime. Must be on format %(format)s"
+#~ msgstr "Data-hora inválida. Deve ser em formato %(format)s"
+
+#~ msgid "MM/dd/YYYY HH:mm:ss"
+#~ msgstr "dd/MM/YYYY HH:mm:ss"
+
+#~ msgid ""
+#~ msgstr ""
+
