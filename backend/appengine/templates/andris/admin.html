@@ -21,6 +21,7 @@
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#tab1default" data-toggle="tab">Aparência</a></li>
                         <li><a href="#tab2default" data-toggle="tab">Categorias</a></li>
+                        <li><a href="#tab3default" data-toggle="tab">Produtos</a></li>
 
 
 
@@ -172,11 +173,11 @@
                                 <form action="{{ salvar_path }}" method="post" role="form">
                                     {{ csrf_input() }}
 
-                                    {{ form_input('Nome da Categoria','nomeCategoria','','','fa fa-bars') }}
+                                    {{ form_input('Nova Categoria','nomeCategoria','','','fa fa-bars') }}
 
-                                    {{ form_button('Salvar','submit','btn-default','','fa fa-plus-square') }}
+                                    {{ form_button('Adicionar','submit','btn-default','','fa fa-plus-square') }}
 
-<!--teste>
+
 
                                 </form>
 
@@ -194,18 +195,54 @@
 
 
                                     <tr>
-                                        <td>{{ cat.nomeCategoria }}</td>
-                                        <td>{{ form_button_href('Alterar','btn-success','btn-sm','fa fa-exchange',cat.editar_path)}}</td>
-                                        <td><form action="{{ cat.deletar_path }}" method="post">
-                                            {{ csrf_input() }}
-                                            {{ form_button('Deletar','submit','btn-danger','btn-sm','fa fa-trash')}}
-                                        </form></td>
+                                        <td>
+                                            <div class="btn-group">
+
+                                                <form action="{{ cat.editar_path }}" method="post">
+
+                                                    {{ csrf_input() }}
+
+                                                    <input type="hidden" value="{{ cat.key.id() }}" name="categoria_id"/>
+                                                    {{ form_input('','nomeCategoria',cat.nomeCategoria,'','fa fa-bars') }}
+                                                    {{ form_button('Alterar','submit','btn-success','btn-sm','fa fa-exchange')}}
+
+                                                </form>
+
+
+
+                                                <form action="{{ cat.deletar_path }}" method="post">
+                                                    {{ csrf_input() }}
+                                                    {{ form_button('Deletar','submit','btn-danger','btn-sm','fa fa-trash')}}
+
+                                                </form>
+
+                                            </div>
+
+
+
+
+                                        </td>
                                     </tr>
                                 {% endfor %}
 
                                 </tbody>
 
                             </table>
+
+
+                        </div>
+
+                        <div class="tab-pane fade" id="tab3default">
+
+
+                            {% for cat in categoria_lista %}
+
+
+
+
+
+                            {% endfor %}
+
 
 
                         </div>

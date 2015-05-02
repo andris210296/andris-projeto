@@ -7,7 +7,7 @@ from config.template_middleware import TemplateResponse
 from tekton.gae.middleware.redirect import RedirectResponse
 
 
-def salvar(**campos):
+def salvarCategoria(**campos):
     categoriaForm = CategoriaForm(**campos)
     erros = categoriaForm.validate()
     if not erros:
@@ -15,8 +15,8 @@ def salvar(**campos):
         novoCat = Categoria(**propriedades)
         novoCat.put()
 
-        from routes.andris.admin import index
-        return RedirectResponse(index)
+        from routes.andris import admin
+        return RedirectResponse(admin)
     else:
         contexto = {'categoria':campos,'erros':erros}
         return TemplateResponse(contexto,template_path='/andris/admin.html')
