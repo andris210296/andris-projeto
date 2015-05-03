@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
-from categoria.categoriaM import CategoriaForm, Categoria
+from categoria_produto.categoria_produtoM import CategoriaForm, Categoria
 
 from config.template_middleware import TemplateResponse
 
@@ -18,5 +18,5 @@ def salvarCategoria(**campos):
         from routes.andris import admin
         return RedirectResponse(admin)
     else:
-        contexto = {'categoria':campos,'erros':erros}
+        contexto = {'categoria_produto':campos,'erros':erros}
         return TemplateResponse(contexto,template_path='/andris/admin.html')

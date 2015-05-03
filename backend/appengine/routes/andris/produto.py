@@ -5,7 +5,7 @@ from gaepermission.decorator import login_not_required
 from config.template_middleware import TemplateResponse
 from tekton import router
 from permission_app.model import ADMIN
-from categoria.categoriaM import *
+from categoria_produto.categoria_produtoM import *
 
 @login_not_required
 @no_csrf

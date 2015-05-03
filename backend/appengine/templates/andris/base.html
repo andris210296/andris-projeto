@@ -26,7 +26,7 @@
 
 {% macro form_button_href(label,color,size,icon,reference) %}
     <a class="btn {{ color }} {{ size }}" href="{{ reference }}" >
-                <i class="{{ icon }}"></i> {{ label }}
+        <i class="{{ icon }}"></i> {{ label }}
     </a>
 
 {% endmacro %}
@@ -114,13 +114,13 @@
 
 
 
-                            {% for categoria in categoria_lista %}
+                        {% for categoria in categoria_lista %}
 
-                                <li>
-                                    <a href="/andris/categoria?categoria={{ categoria.nomeCategoria }}"><i class="fa fa-angle-right"></i>{{ categoria.nomeCategoria }}</a>
-                                </li>
+                            <li>
+                                <a href="/andris/categoria?categoria={{ categoria.nomeCategoria }}"><i class="fa fa-angle-right"></i>{{ categoria.nomeCategoria }}</a>
+                            </li>
 
-                            {% endfor %}
+                        {% endfor %}
 
 
                     </ul>
@@ -133,10 +133,15 @@
                     <a href="#"><i class="fa fa-phone"></i> Contato</a>
                 </li>
 
-                {% if _logged_user and 'ADMIN' in _logged_user.groups %}
+                <!-- {% if _logged_user and 'ADMIN' in _logged_user.groups %}
                     <li {{ 'class=active' if tab=='ADMIN' }}><a href="/andris/admin"><i class="fa fa-cogs"></i>{% trans %} Gerenciamento{% endtrans %}</a>
                     </li>
-                {% endif %}
+                {% endif %} -->
+
+
+
+                <li><a href="/andris/admin"><i class="fa fa-cogs"></i> Gerenciamento</a>
+                </li>
 
 
 

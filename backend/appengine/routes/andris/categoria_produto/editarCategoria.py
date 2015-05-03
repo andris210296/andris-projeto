@@ -1,7 +1,7 @@
 from __future__ import absolute_import, unicode_literals
 
 from __future__ import absolute_import, unicode_literals
-from categoria.categoriaM import CategoriaForm, Categoria
+from categoria_produto.categoria_produtoM import CategoriaForm, Categoria
 from gaecookie.decorator import no_csrf
 from config.template_middleware import TemplateResponse
 
