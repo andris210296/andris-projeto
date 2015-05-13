@@ -26,8 +26,8 @@
 
                             <div class="col-sm-4">
                                 <div class="col-item">
-                                    <a  href="/andris/produto?produto=produto{{ i }}">
-                                        <img  href="/andris/produto?produto=produto{{ i }}" src="../static/img/fotonaodisponivel.jpg" class="img-responsive" alt="" />
+                                    <a  href="#">
+                                        <img  href="#" src="../static/img/fotonaodisponivel.jpg" class="img-responsive" alt="" />
                                     </a>
                                     <div class="info">
                                         <div class="row">
@@ -65,8 +65,8 @@
 
                             <div class="col-sm-4">
                                 <div class="col-item">
-                                    <a  href="/andris/produto?produto=produto{{ i }}">
-                                        <img  href="/andris/produto?produto=produto{{ i }}" src="../static/img/fotonaodisponivel.jpg" class="img-responsive" alt="" />
+                                    <a  href="#">
+                                        <img  href="#" src="../static/img/fotonaodisponivel.jpg" class="img-responsive" alt="" />
                                     </a>
                                     <div class="info">
                                         <div class="row">
@@ -110,22 +110,22 @@
                 <div class="col-md-10 col-md-offset-1">
                     <div class="row l-b-margin">
 
-                        {% for categoria in categoria_lista %}
+                        {% for cat in categoria_lista %}
 
                             <div class="col-md-4">
                                 <div class="well well-white">
 
-                                    <a  href="/andris/categoria?categoria={{ categoria.nomeCategoria }}">
+                                    <a  href="/andris/categoria?categoria={{ cat.key.id() }}" >
 
                                         <img  alt="R Programming" class="center-block l-b-margin img-circle " height="100" src="../static/img/fotonaodisponivel.jpg" width="100" />
                                     </a>
 
-                                    <h6 style="text-align:center; font-size:21px"><b>{{ categoria.nomeCategoria }}</b></h6>
+                                    <h6 style="text-align:center; font-size:21px"><b>{{ cat.nomeCategoria }}</b></h6>
                                     <p class="text-space l-b-margin">Principais informações sobre esta categoria</p>
                                     <!--   <a class="rounded-button cta-border-button center-block m-button" href="/andris/categoria?categoria=categoria{{ i }}">Veja mais !</a> -->
 
 
-                                    {{ form_button_href('Explorar!','btn-default','btn-lg btn-block','',"/andris/categoria_produto?categoria_produto="+categoria.nomeCategoria ) }}
+
 
 
                                 </div>

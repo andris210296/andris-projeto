@@ -31,3 +31,8 @@ indexes:
   properties:
   - name: class
   - name: email
+
+- kind: Produto
+  properties:
+  - name: categoria_id
+  - name: nomeProduto

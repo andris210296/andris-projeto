@@ -10,6 +10,7 @@ from categoria_produto.categoria_produtoM import *
 @no_csrf
 def index():
     query = Categoria.query_ordenada_por_nome()
+
     contexto = {'categoria_lista':query.fetch()}
     return TemplateResponse(contexto)
 

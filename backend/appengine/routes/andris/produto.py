@@ -10,6 +10,12 @@ from categoria_produto.categoria_produtoM import *
 @login_not_required
 @no_csrf
 def index(produto):
+
+
+    produto = Produto.get_by_id(int(produto))
+
+
+
     query = Categoria.query_ordenada_por_nome()
     contexto = {'categoria_lista':query.fetch(),'produto':produto}
 

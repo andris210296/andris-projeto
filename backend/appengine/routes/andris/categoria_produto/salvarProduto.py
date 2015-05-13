@@ -5,8 +5,11 @@ from google.appengine.ext import ndb
 from config.template_middleware import TemplateResponse
 
 from tekton.gae.middleware.redirect import RedirectResponse
+from gaecookie.decorator import no_csrf
+from gaepermission.decorator import login_not_required
 
-
+@login_not_required
+@no_csrf
 def salvarProduto(**campos):
     campos['categoria_id'] = ndb.Key(Categoria,int(campos['categoria_id']))
     produtoForm = ProdutoForm(**campos)

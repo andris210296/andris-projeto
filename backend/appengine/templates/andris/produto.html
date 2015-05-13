@@ -3,7 +3,7 @@
 {% block body %}
 
 
-    <h1 class="page-header">{{ produto }}</h1>
+    <h1 class="page-header">{{ produto.nomeProduto }}</h1>
 
 
 
@@ -59,7 +59,7 @@
                 <p>
 
                 <p class="lead">
-                    <strong><h3>$39,99</h3></strong></p>
+                    <strong><h3>R$ {{ produto.precoProduto }}</h3></strong></p>
                 <p><img  src="../static/img/cartao.png" class="img-responsive" alt="" /></p>
 
 
@@ -85,7 +85,7 @@
 
                     <div class="tab-pane active" id="panel-399871">
 
-                        Principais Informações do produto {{ produto }}
+                        Principais Informações do produto {{ produto.nomeProduto }}
 
 
 

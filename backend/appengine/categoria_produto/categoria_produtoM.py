@@ -30,6 +30,14 @@ class Produto(ndb.Model):
     def query_ordenada_por_nome(cls):
         return cls.query().order(Produto.nomeProduto)
 
+    @classmethod
+    def query_por_categoria_ordenada_por_nome(cls, categoria_selecionada):
+        if isinstance(categoria_selecionada, basestring):
+            categoria_selecionada=ndb.Key(Categoria, int(categoria_selecionada))
+        return cls.query(cls.categoria_id==categoria_selecionada.key).order(cls.nomeProduto)
+
+
+
 
 class ProdutoForm(ModelForm):
     _model_class = Produto

@@ -4,27 +4,27 @@
 
 {% block body %}
 
-    <h1 class="page-header">{{ categoria }}</h1>
+    <h1 class="page-header">{{ categoria.nomeCategoria}} </h1>
 
 
 
     <div class="row">
 
-        {% for i in range (0,10) %}
+        {% for prod in produto_lista %}
 
             <div class="col-md-5 portfolio-item">
 
-                <a  href="/andris/produto?produto=produto{{ i }}">
-                    <img  href="/andris/produto?produto=produto{{ i }}" src="../static/img/fotonaodisponivel.jpg" class="img-responsive" alt="" />
+                <a  href="/andris/produto?produto={{ prod.key.id() }}">
+                    <img  href="/andris/produto?produto={{ prod.key.id() }}" src="../static/img/fotonaodisponivel.jpg" class="img-responsive" alt="" />
                 </a>
                 <p>
 
                 <div class="row">
                     <div class="price col-md-6">
                         <h5>
-                            Produto {{ i }}</h5>
+                            {{ prod.nomeProduto }}</h5>
                         <h5 class="price-text-color">
-                            R${{ i * 3 }},99</h5>
+                            R$ {{ prod.precoProduto}}</h5>
                     </div>
                     <div class="rating hidden-sm col-md-6">
                         <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">

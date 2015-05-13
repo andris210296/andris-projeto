@@ -114,10 +114,10 @@
 
 
 
-                        {% for categoria in categoria_lista %}
+                        {% for cat in categoria_lista %}
 
                             <li>
-                                <a href="/andris/categoria?categoria={{ categoria.nomeCategoria }}"><i class="fa fa-angle-right"></i>{{ categoria.nomeCategoria }}</a>
+                                <a href="/andris/categoria?categoria={{ cat.key.id() }}"><i class="fa fa-angle-right"></i>{{ cat.nomeCategoria }}</a>
                             </li>
 
                         {% endfor %}
@@ -209,10 +209,10 @@
 
                 <ul class="nav nav-sidebar hidden-xs">
 
-                    {% for categoria in categoria_lista %}
+                    {% for cat in categoria_lista %}
 
-                        <li><a  href="/andris/categoria?categoria={{ categoria.nomeCategoria }}" class="list-group-item default">
-                            <span class="badge">{{ 3 }}</span>{{ categoria.nomeCategoria }}</a>
+                        <li><a  href="/andris/categoria?categoria={{ cat.key.id() }}" class="list-group-item default">
+                            <span class="badge">{{ 3 }}</span>{{ cat.nomeCategoria }}</a>
 
 
                         </li>

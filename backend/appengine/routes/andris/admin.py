@@ -14,10 +14,12 @@ from routes.andris.categoria_produto.salvarCategoria import salvarCategoria
 from routes.andris.categoria_produto.salvarProduto import salvarProduto
 from routes.andris.categoria_produto.editarCategoria import editarCategoria
 from routes.andris.categoria_produto.editarProduto import editarProduto
+from gaepermission.decorator import login_not_required
 
 
 #@permissions(ADMIN)
 @no_csrf
+@login_not_required
 def index():
 
     categoria_query = Categoria.query_ordenada_por_nome()
