@@ -14,11 +14,16 @@ def index(categoria):
 
     categoria = Categoria.get_by_id(int(categoria))
 
-    categoria_query = Categoria.query_ordenada_por_nome().fetch()
+    categoria_query = Categoria.query_ordenada_por_nome()
+    categorias = categoria_query.fetch()
     produto_query = Produto.query_por_categoria_ordenada_por_nome(categoria)
     produtos = produto_query.fetch()
 
-    contexto = {'categoria_lista':categoria_query,'produto_lista':produtos,'categoria':categoria}
+    for cat in categorias:
+
+        cat.QtdProd = len(Produto.query_por_categoria_ordenada_por_nome(Categoria.get_by_id(int(cat.key.id()))).fetch())
+
+    contexto = {'categoria_lista':categorias,'produto_lista':produtos,'categoria':categoria}
 
     return TemplateResponse(contexto,template_path='/andris/categoria.html')
 

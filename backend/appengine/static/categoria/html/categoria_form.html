@@ -1,0 +1,29 @@
+
+<div class="well">
+
+
+    <div class="form-group" ng-class="{true: '',false:'has-error'}[errors.nomeCategoria==null]">
+        <label for="nomeCategoriaInput" class="control-label">{{ nomeLabel }} </label>
+
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="fa fa-bars"></i>
+            </span>
+            <input id="nomeCategoriaInput" type="text" class="form-control" ng-model="categoria.nomeCategoria" />
+
+        </div>
+       <span class="help-block" ng-show="errors.nomeCategoria">{{ errors.nomeCategoria }}</span>
+    </div>
+
+
+
+    <button type="submit" class="btn btn-default" ng-click="salvarCategoria()" ng-hide="salvandoFlag">
+        <span class="fa fa-plus-square" aria-hidden="true"></span> Adicionar
+    </button>
+
+
+    <img src="/static/img/ajax.gif" ng-show="salvandoFlag"/>
+
+
+
+</div>

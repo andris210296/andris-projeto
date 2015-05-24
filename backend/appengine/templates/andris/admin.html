@@ -3,19 +3,50 @@
 {% block coluna %}
 {% endblock %}
 
+{% block js %}
+    <script type="text/javascript" src = "/static/angular/js/angular.min.js"></script>
+    <script type="text/javascript" src = "/static/categoria/js/categoria.js"></script>
+
+    <script type="text/javascript">
+
+        var rest = angular.module('rest',[]);
+        rest.factory('CategoriaApi',function($http){
+            return{
+
+                salvarCategoria:function(categoria){
+                    return $http.post('{{ rest_salvar_path }}',categoria);
+                }
+            };
+        });
 
 
+        var categoriaApp = angular.module('categoriaApp',['categoriaModulo']);
+
+
+        function CategoriaController($scope){
+
+            $scope.categoria={nomeCategoria:''};
+            $scope.categoriaLista={{ categorias|safe }};
+        }
+
+
+
+
+
+
+    </script>
+
+
+
+{% endblock %}
 
 
 
 {% block body %}
 
-
-
-
-
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12" >
+
             <div class="panel with-nav-tabs panel-default">
                 <div class="panel-heading">
                     <ul class="nav nav-tabs">
@@ -166,68 +197,36 @@
 
 
                         </div>
-                        <div class="tab-pane fade" id="tab2default">
+                        <div class="tab-pane fade" id="tab2default" >
 
-                            <div class="well">
-
-                                <form action="{{ salvar_path }}" method="post" role="form">
-                                    {{ csrf_input() }}
-
-                                    {{ form_input('Nova Categoria','nomeCategoria','','','fa fa-bars') }}
-
-                                    {{ form_button('Adicionar','submit','btn-default','','fa fa-plus-square') }}
+                            <div ng-app="categoriaApp" ng-controller="CategoriaController">
 
 
 
-                                </form>
+                                <categoriaform categoria="categoria" nome-label="Nova Categoria"></categoriaform>
 
-                            </div>
+
+
+
+
+
 
                             <h3>Lista de Categorias</h3>
 
 
 
-                            <table class="table table-striped table-bordered">
+                                <table class="table table-striped table-bordered">
 
-                                <tbody>
-
-                                {% for cat in categoria_lista %}
+                                    <tbody>
 
 
-                                    <tr>
-                                        <td>
-                                            <div class="btn-group">
-
-                                                <form action="{{ cat.editar_path }}" method="post">
-
-                                                    {{ csrf_input() }}
-
-                                                    <input type="hidden" value="{{ cat.key.id() }}" name="categoria_id"/>
-                                                    {{ form_input('','nomeCategoria',cat.nomeCategoria,'','fa fa-bars') }}
-                                                    {{ form_button('Alterar','submit','btn-success','btn-sm','fa fa-exchange')}}
-
-                                                </form>
+                                    <tr categorialinha ng-repeat="cat in categoriaLista" categoria="cat"> </tr>
 
 
+                                    </tbody>
 
-                                                <form action="{{ cat.deletar_path }}" method="post">
-                                                    {{ csrf_input() }}
-                                                    {{ form_button('Deletar','submit','btn-danger','btn-sm','fa fa-trash')}}
-
-                                                </form>
-
-                                            </div>
-
-
-
-
-                                        </td>
-                                    </tr>
-                                {% endfor %}
-
-                                </tbody>
-
-                            </table>
+                                </table>
+                            </div>
 
 
                         </div>
@@ -372,3 +371,4 @@
 
 
 {% endblock %}
+

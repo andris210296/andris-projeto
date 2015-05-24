@@ -32,6 +32,35 @@
 {% endmacro %}
 
 
+
+
+
+
+
+
+{% macro angular_input(label,property,model,error_msg,icon) %}
+    <div class="form-group {{ ' has-error' if error_msg }}">
+        <label for="{{ property }}Input" class="control-label">{{ label }} </label>
+
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="{{ icon }}"></i>
+            </span>
+            <input id="{{ property }}Input" type="text" class="form-control" ng-model="{{ model }}" />
+
+        </div>
+        {% if error_msg %}<span class="help-block">{{ error_msg }}</span>{% endif %}
+    </div>
+{% endmacro %}
+
+{% macro angular_button(label,type,ng,color,size,icon) %}
+    <button type="{{ type }}" class="btn {{ color }} {{ size }}" {{ ng }}>
+        <span class="{{ icon }}" aria-hidden="true"></span> {{ label }}
+    </button>
+
+{% endmacro %}
+
+
 <html>
 <head lang="en">
     <meta charset="UTF-8">
@@ -212,7 +241,7 @@
                     {% for cat in categoria_lista %}
 
                         <li><a  href="/andris/categoria?categoria={{ cat.key.id() }}" class="list-group-item default">
-                            <span class="badge">{{ 3 }}</span>{{ cat.nomeCategoria }}</a>
+                            <span class="badge">{{ cat.QtdProd }}</span>{{ cat.nomeCategoria }}</a>
 
 
                         </li>

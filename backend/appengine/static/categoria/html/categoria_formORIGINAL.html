@@ -1,0 +1,16 @@
+
+
+<div class="well">
+
+    {{ csrf_input() }}
+
+    {{ angular_input('Nova Categoria','nomeCategoria','categoria.nomeCategoria',errors.nomeCategoria,'fa fa-bars') }}
+
+    {{ angular_button('Adicionar','submit','ng-click=salvarCategoria() ng-hide="salvandoFlag','btn-default','','fa fa-plus-square') }}
+
+    <img src="/static/img/ajax.gif" ng-show="salvandoFlag"/>
+
+
+
+</div>
+
