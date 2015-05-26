@@ -8,7 +8,9 @@ categoriaModulo.directive('categoriaform',function(){
         templateUrl:'/static/categoria/html/categoria_form.html',
         scope:{
             categoria:'=',
-            nomeLabel:'@'
+            nomeLabel:'@',
+            saveComplete:'&'
+
         },
         controller:function($scope,CategoriaApi){
             $scope.salvandoFlag = false;
@@ -19,10 +21,15 @@ categoriaModulo.directive('categoriaform',function(){
 
 
 
-                CategoriaApi.salvarCategoria($scope.categoria).success(function(categoria){
-
+                CategoriaApi.salvarCategoria($scope.categoria).success(function(categoria) {
 
                     $scope.categoria.nomeCategoria = '';
+
+                    if ($scope.saveComplete != undefined) {
+
+                        $scope.saveComplete({'categoria':categoria});
+                    }
+
                     $scope.salvandoFlag = false;
 
 
@@ -50,16 +57,26 @@ categoriaModulo.directive('categoriaform',function(){
 categoriaModulo.directive('categorialinha',function(){
 
     return{
-        restrict:'A',
         replace:true,
         templateUrl:'/static/categoria/html/categoria_linha_tabela.html',
         scope:{
-            categoria:'='
+            categoria:'=',
+            deleteComplete:'&'
 
         },
         controller:function($scope,CategoriaApi){
+            $scope.ajaxFlag = false;
+            $scope.deletarCategoria = function(){
+                $scope.ajaxFlag = true;
+                CategoriaApi.deletarCategoria($scope.categoria.id).success(function(){
+                    $scope.deleteComplete({'categoria':$scope.categoria});
+
+                }).error(function(){
 
 
+
+                });
+            }
 
 
 

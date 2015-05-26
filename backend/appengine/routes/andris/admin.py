@@ -15,7 +15,7 @@ from routes.andris.categoria_produto.salvarProduto import salvarProduto
 from routes.andris.categoria_produto.editarCategoria import editarCategoria
 from routes.andris.categoria_produto.editarProduto import editarProduto
 from gaepermission.decorator import login_not_required
-from routes.andris.categoria.ngCategoria import salvarCategoria
+from routes.andris.categoria.ngCategoria import salvarCategoria,listarCategoria,deletarCategoria
 from tekton.gae.middleware.json_middleware import *
 import json
 #@permissions(ADMIN)
@@ -63,18 +63,17 @@ def index():
     # Angular
     salvar_path = router.to_path(salvarCategoria)   #Agora que está sendo utilizado o angular, o path foi para um arquivo diferente, pois nele há json
 
+    listar_path = router.to_path(listarCategoria)
 
-    localized_categorias = [CategoriaForm.fill_with_model(categoria) for categoria in Categoria.query_ordenada_por_nome()]
+    deletar_path = router.to_path(deletar_path)
 
-
-    str_json = json.dumps(localized_categorias)
 
 
 
     contexto = {'categoria_lista':categorias,'produto_lista':produtos,'salvar_path':salvar_path,
-                'rest_salvar_path':salvar_path,'categorias':str_json,
-
+                'rest_salvar_path':salvar_path,'rest_list_path':listar_path,'rest_delete_path':deletar_path,
                 'produto_salvar_path':produto_salvar_path}
+
     return TemplateResponse(contexto,template_path='/andris/admin.html')
 
 

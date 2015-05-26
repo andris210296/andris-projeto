@@ -2,23 +2,30 @@
     <td>
         <div class="btn-group">
 
-            <form action="{{ cat.editar_path }}" method="post">
-
-                {{ csrf_input() }}
-
-                <input type="hidden" value="{{ cat.key.id() }}" name="categoria_id"/>
-                {{ form_input('','nomeCategoria',cat.nomeCategoria,'','fa fa-bars') }}
-                {{ form_button('Alterar','submit','btn-success','btn-sm','fa fa-exchange')}}
-
-            </form>
 
 
+            <div class="form-group" ng-class="{true: '',false:'has-error'}[errors.nomeCategoria==null]">
 
-            <form action="{{ cat.deletar_path }}" method="post">
-                {{ csrf_input() }}
-                {{ form_button('Deletar','submit','btn-danger','btn-sm','fa fa-trash')}}
+                <div class="input-group">
+            <span class="input-group-addon">
+                <i class="fa fa-bars"></i>
+            </span>
+                    <input id="nomeCategoriaInput" type="text" class="form-control" ng-model="categoria.nomeCategoria" />
 
-            </form>
+                </div>
+                <span class="help-block" ng-show="errors.nomeCategoria">{{ errors.nomeCategoria }}</span>
+            </div>
+
+            <button type="submit" class="btn btn-success btn-sm" ng-click="alterarCategoria()" ng-hide="ajaxFlag">
+                <span class="fa fa-exchange" aria-hidden="true"></span> Alterar
+            </button>
+            <img src="/static/img/ajax.gif" ng-show="ajaxFlag"/>
+
+            <button type="submit" class="btn btn-danger btn-sm" ng-click="deletarCategoria()" ng-hide="ajaxFlag">
+                <span class="fa fa-trash" aria-hidden="true"></span> Deletar
+            </button>
+            <img src="/static/img/ajax.gif" ng-show="ajaxFlag"/>
+
 
         </div>
 

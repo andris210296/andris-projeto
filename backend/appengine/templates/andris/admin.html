@@ -15,18 +15,46 @@
 
                 salvarCategoria:function(categoria){
                     return $http.post('{{ rest_salvar_path }}',categoria);
+                },
+                listarCategoria:function(){
+                    return $http.post('{{ rest_list_path }}');
+                },
+                deletarCategoria:function(categoria_id){
+                    return $http.post('{{ rest_delete_path }}',{categoria_id:categoria_id});
                 }
+
             };
         });
 
 
-        var categoriaApp = angular.module('categoriaApp',['categoriaModulo']);
+        var categoriaApp = angular.module('categoriaApp',['categoriaModulo','rest']);
 
 
-        function CategoriaController($scope){
+        function CategoriaController($scope,CategoriaApi){
 
             $scope.categoria={nomeCategoria:''};
-            $scope.categoriaLista={{ categorias|safe }};
+            $scope.listandoFlag=true;
+            $scope.categoriaLista=[];
+            CategoriaApi.listarCategoria().success(function(categorias){
+                $scope.categoriaLista = categorias;
+                listandoFlag= false;
+            });
+
+
+            $scope.adicionarCategoria = function(categoria){
+                $scope.categoriaLista.unshift(categoria);
+            }
+
+            $scope.deletarCategoria=function(categoria){
+                var categoriaLista = $scope.categoriaLista;
+
+                for (var i=0; i < categoriaLista.length; i +=1 ){
+                    if(categoria.id == categoriaLista[i].id){
+                        categoriaLista.splice(i,1);
+                        break;
+                    }
+                }
+            }
         }
 
 
@@ -203,7 +231,7 @@
 
 
 
-                                <categoriaform categoria="categoria" nome-label="Nova Categoria"></categoriaform>
+                                <categoriaform categoria="categoria" nome-label="Nova Categoria" save-complete="adicionarCategoria(categoria)"></categoriaform>
 
 
 
@@ -220,7 +248,8 @@
                                     <tbody>
 
 
-                                    <tr categorialinha ng-repeat="cat in categoriaLista" categoria="cat"> </tr>
+                                    <tr categorialinha ng-repeat="categoria in categoriaLista" categoria="categoria" delete-complete="deleteComplete(categoria)"> </tr>
+                                    <img src="/static/img/ajax.gif" ng-show="listandoFlag"/>
 
 
                                     </tbody>
