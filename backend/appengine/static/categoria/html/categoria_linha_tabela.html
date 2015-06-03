@@ -16,10 +16,10 @@
                 <span class="help-block" ng-show="errors.nomeCategoria">{{ errors.nomeCategoria }}</span>
             </div>
 
-            <button type="submit" class="btn btn-success btn-sm" ng-click="alterarCategoria()" ng-hide="ajaxFlag">
+            <button type="submit" class="btn btn-success btn-sm" ng-click="editarCategoria()" ng-hide="ajaxFlag || editingFlag">
                 <span class="fa fa-exchange" aria-hidden="true"></span> Alterar
             </button>
-            <img src="/static/img/ajax.gif" ng-show="ajaxFlag"/>
+
 
             <button type="submit" class="btn btn-danger btn-sm" ng-click="deletarCategoria()" ng-hide="ajaxFlag">
                 <span class="fa fa-trash" aria-hidden="true"></span> Deletar

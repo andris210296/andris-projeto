@@ -21,7 +21,15 @@
                 },
                 deletarCategoria:function(categoria_id){
                     return $http.post('{{ rest_delete_path }}',{categoria_id:categoria_id});
+                },
+                editarCategoria: function(categoria) {
+
+                    alert(categoria.nomeCategoria);
+                    return $http.post('{{ rest_edit_path }}',{categoria_id:categoria.categoria_id,nomeCategoria:categoria.nomeCategoria});
+
                 }
+
+
 
             };
         });
@@ -37,7 +45,7 @@
             $scope.categoriaLista=[];
             CategoriaApi.listarCategoria().success(function(categorias){
                 $scope.categoriaLista = categorias;
-                listandoFlag= false;
+                $scope.listandoFlag= false;
             });
 
 
@@ -55,6 +63,8 @@
                     }
                 }
             }
+
+
         }
 
 
@@ -248,7 +258,7 @@
                                     <tbody>
 
 
-                                    <tr categorialinha ng-repeat="categoria in categoriaLista" categoria="categoria" delete-complete="deleteComplete(categoria)"> </tr>
+                                    <tr categorialinha ng-repeat="categoria in categoriaLista" categoria="categoria" delete-complete="deletarCategoria(categoria)"> </tr>
                                     <img src="/static/img/ajax.gif" ng-show="listandoFlag"/>
 
 

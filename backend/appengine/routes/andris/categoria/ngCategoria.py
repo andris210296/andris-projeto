@@ -11,11 +11,7 @@ from google.appengine.ext import ndb
 @login_not_required
 @no_csrf
 def salvarCategoria(_resp,**campos):
-
-
     categoriaForm = CategoriaForm(**campos)
-
-
     erros = categoriaForm.validate()
     if erros:
         _resp.set_status(400)
@@ -25,6 +21,24 @@ def salvarCategoria(_resp,**campos):
     categoria.put()
     dct = categoriaForm.fill_with_model(categoria)
     return JsonResponse(dct)
+
+
+@login_not_required
+@no_csrf
+def editarCategoria(_resp,categoria_id,nomeCategoria):
+
+    categoriaForm = CategoriaForm(categoria_id,nomeCategoria)
+    erros = categoriaForm.validate()
+    if erros:
+        _resp.set_status(400)
+        return JsonResponse(erros)
+
+    categoria = Categoria.get_by_id(int(categoria_id))
+    categoria.nomeCategoria = nomeCategoria
+    categoria.put()
+    dct = categoriaForm.fill_with_model(categoria)
+    return JsonResponse(dct)
+
 
 
 @login_not_required
@@ -39,3 +53,5 @@ def listarCategoria():
 def deletarCategoria(categoria_id):
     key = ndb.Key(Categoria, int(categoria_id))
     key.delete()
+
+

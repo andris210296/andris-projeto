@@ -15,7 +15,7 @@ from routes.andris.categoria_produto.salvarProduto import salvarProduto
 from routes.andris.categoria_produto.editarCategoria import editarCategoria
 from routes.andris.categoria_produto.editarProduto import editarProduto
 from gaepermission.decorator import login_not_required
-from routes.andris.categoria.ngCategoria import salvarCategoria,listarCategoria,deletarCategoria
+from routes.andris.categoria.ngCategoria import salvarCategoria,listarCategoria,deletarCategoria,editarCategoria
 from tekton.gae.middleware.json_middleware import *
 import json
 #@permissions(ADMIN)
@@ -34,10 +34,10 @@ def index():
    # salvar_path = router.to_path(salvarCategoria)       # antes da utilização do angular
     produto_salvar_path = router.to_path(salvarProduto)
 
-    editar_path = router.to_path(editarCategoria)
+    #editar_path = router.to_path(editarCategoria)
     produto_editar_path = router.to_path(editarProduto)
 
-    deletar_path= router.to_path(deletar)
+    #deletar_path= router.to_path(deletar)
     produto_deletar_path= router.to_path(deletarProduto)
 
     categorias = categoria_query.fetch()
@@ -46,8 +46,8 @@ def index():
     for cat in categorias:
         cat_key = cat.key
         cat_key_id = cat_key.id()
-        cat.editar_path = router.to_path(editar_path)
-        cat.deletar_path = router.to_path(deletar_path, cat_key_id)
+       #cat.editar_path = router.to_path(editar_path)
+        #cat.deletar_path = router.to_path(deletar_path, cat_key_id)
 
         cat.QtdProd = len(Produto.query_por_categoria_ordenada_por_nome(Categoria.get_by_id(int(cat_key_id))).fetch())
 
@@ -65,13 +65,15 @@ def index():
 
     listar_path = router.to_path(listarCategoria)
 
-    deletar_path = router.to_path(deletar_path)
+    deletar_path = router.to_path(deletarCategoria)
+
+    editar_path = router.to_path(editarCategoria)
 
 
 
 
     contexto = {'categoria_lista':categorias,'produto_lista':produtos,'salvar_path':salvar_path,
-                'rest_salvar_path':salvar_path,'rest_list_path':listar_path,'rest_delete_path':deletar_path,
+                'rest_salvar_path':salvar_path,'rest_list_path':listar_path,'rest_delete_path':deletar_path,'rest_edit_path':editar_path,
                 'produto_salvar_path':produto_salvar_path}
 
     return TemplateResponse(contexto,template_path='/andris/admin.html')

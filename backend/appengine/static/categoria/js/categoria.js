@@ -66,6 +66,8 @@ categoriaModulo.directive('categorialinha',function(){
         },
         controller:function($scope,CategoriaApi){
             $scope.ajaxFlag = false;
+            $scope.editingFlag = false;
+            $scope.categoriaEditar = {}
             $scope.deletarCategoria = function(){
                 $scope.ajaxFlag = true;
                 CategoriaApi.deletarCategoria($scope.categoria.id).success(function(){
@@ -76,6 +78,18 @@ categoriaModulo.directive('categorialinha',function(){
 
 
                 });
+            }
+
+            $scope.editarCategoria = function(){
+                $scope.editingFlag = true;
+                CategoriaApi.editarCategoria($scope.categoriaEditar).success(function(categoria){
+                   $scope.categoria = categoria;
+                    $scope.editingFlag = false;
+                });
+
+
+
+
             }
 
 
