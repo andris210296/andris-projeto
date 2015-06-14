@@ -5,7 +5,7 @@ categoriaModulo.directive('categoriaform',function(){
     return{
         restrict:'E',
         replace:true,
-        templateUrl:'/static/categoria/html/categoria_form.html',
+        templateUrl:'/static/categoria_produto/html/categoria_form.html',
         scope:{
             categoria:'=',
             nomeLabel:'@',
@@ -58,16 +58,23 @@ categoriaModulo.directive('categorialinha',function(){
 
     return{
         replace:true,
-        templateUrl:'/static/categoria/html/categoria_linha_tabela.html',
+        templateUrl:'/static/categoria_produto/html/categoria_linha_tabela.html',
         scope:{
             categoria:'=',
-            deleteComplete:'&'
+            deleteComplete:'&',
+            editComplete:'&'
+
 
         },
         controller:function($scope,CategoriaApi){
             $scope.ajaxFlag = false;
             $scope.editingFlag = false;
             $scope.categoriaEditar = {}
+
+            $scope.categoriaEditar.id = $scope.categoria.id;
+            $scope.categoriaEditar.nomeCategoria = $scope.categoria.nomeCategoria;
+
+
             $scope.deletarCategoria = function(){
                 $scope.ajaxFlag = true;
                 CategoriaApi.deletarCategoria($scope.categoria.id).success(function(){
@@ -82,10 +89,23 @@ categoriaModulo.directive('categorialinha',function(){
 
             $scope.editarCategoria = function(){
                 $scope.editingFlag = true;
+
+
+
+
+                $scope.errors = {};
                 CategoriaApi.editarCategoria($scope.categoriaEditar).success(function(categoria){
-                   $scope.categoria = categoria;
+
+                    $scope.categoria = categoria;
+
+
                     $scope.editingFlag = false;
-                });
+                }).error(function(erros){
+
+                    $scope.errors = erros;
+                    $scope.editingFlag = false;
+
+                })
 
 
 

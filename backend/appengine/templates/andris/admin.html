@@ -5,7 +5,8 @@
 
 {% block js %}
     <script type="text/javascript" src = "/static/angular/js/angular.min.js"></script>
-    <script type="text/javascript" src = "/static/categoria/js/categoria.js"></script>
+    <script type="text/javascript" src = "/static/categoria_produto/js/categoria.js"></script>
+    <script type="text/javascript" src = "/static/categoria_produto/js/produto.js"></script>
 
     <script type="text/javascript">
 
@@ -24,8 +25,8 @@
                 },
                 editarCategoria: function(categoria) {
 
-                    alert(categoria.nomeCategoria);
-                    return $http.post('{{ rest_edit_path }}',{categoria_id:categoria.categoria_id,nomeCategoria:categoria.nomeCategoria});
+
+                    return $http.post('{{ rest_edit_path }}',{categoria_id:categoria.id,nomeCategoria:categoria.nomeCategoria});
 
                 }
 
@@ -51,7 +52,8 @@
 
             $scope.adicionarCategoria = function(categoria){
                 $scope.categoriaLista.unshift(categoria);
-            }
+
+            };
 
             $scope.deletarCategoria=function(categoria){
                 var categoriaLista = $scope.categoriaLista;
@@ -62,7 +64,7 @@
                         break;
                     }
                 }
-            }
+            };
 
 
         }
@@ -249,7 +251,7 @@
 
 
 
-                            <h3>Lista de Categorias</h3>
+                                <h3>Lista de Categorias</h3>
 
 
 
@@ -258,7 +260,8 @@
                                     <tbody>
 
 
-                                    <tr categorialinha ng-repeat="categoria in categoriaLista" categoria="categoria" delete-complete="deletarCategoria(categoria)"> </tr>
+                                    <tr categorialinha ng-repeat="categoria in categoriaLista" categoria="categoria"
+                                        delete-complete="deletarCategoria(categoria)" edit-complete="adicionarCategoria(categoria)"> </tr>
                                     <img src="/static/img/ajax.gif" ng-show="listandoFlag"/>
 
 
@@ -289,7 +292,6 @@
 
 
 
-
                             <div class="panel-group" id="accordion">
 
 
@@ -311,25 +313,21 @@
 
 
 
-
-
                                                 <div class="well">
 
-                                                    <form action="{{ produto_salvar_path }}" method="post" role="form">
-                                                        {{ csrf_input() }}
-                                                        <input type="hidden" value="{{ cat.key.id() }}" name="categoria_id"/>
+                                                    <input type="hidden" value="{{ cat.key.id() }}" id="categoriaIdInput" name="categoria_id"/>
 
-                                                        {{ form_input('Novo Produto','nomeProduto','','','fa fa-bars') }}
-                                                        {{ form_input('Preco','precoProduto','','','fa fa-money') }}
+                                                    {{ form_input('Novo Produto','nomeProduto','','','fa fa-bars') }}
+                                                    {{ form_input('Preco','precoProduto','','','fa fa-money') }}
 
 
 
 
-                                                        {{ form_button('Adicionar','submit','btn-default','','fa fa-plus-square') }}
+                                                    {{ form_button('Adicionar','submit','btn-default','','fa fa-plus-square') }}
+
+                                                    <img src="/static/img/ajax.gif" id="salvandoProdutoFlag"/>
 
 
-
-                                                    </form>
 
                                                 </div>
 
@@ -339,47 +337,9 @@
 
                                                 <table class="table table-striped table-bordered">
 
-                                                    <tbody>
-
-                                                    {% for prod in produto_lista %}
-                                                        {% if prod.categoria_id.id() == cat.key.id() %}
+                                                    <tbody  id = "tbodyProdutos">
 
 
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="btn-group">
-
-                                                                        <form action="{{ prod.editar_path }}" method="post">
-
-                                                                            {{ csrf_input() }}
-
-                                                                            <input type="hidden" value="{{ prod.key.id() }}" name="produto_id"/>
-                                                                            {{ form_input('','nomeProduto',prod.nomeProduto,'','fa fa-bars') }}
-                                                                            {{ form_input('','precoProduto',prod.precoProduto,'','fa fa-money') }}
-
-                                                                            {{ form_button('Alterar','submit','btn-success','btn-sm','fa fa-exchange')}}
-
-
-
-                                                                        </form>
-
-
-
-                                                                        <form action="{{ prod.deletar_path }}" method="post">
-                                                                            {{ csrf_input() }}
-                                                                            {{ form_button('Deletar','submit','btn-danger','btn-sm','fa fa-trash')}}
-
-                                                                        </form>
-
-                                                                    </div>
-
-
-
-
-                                                                </td>
-                                                            </tr>
-                                                        {% endif %}
-                                                    {% endfor %}
 
                                                     </tbody>
 

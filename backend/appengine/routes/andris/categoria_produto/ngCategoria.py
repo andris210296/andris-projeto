@@ -1,17 +1,19 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
-from categoria_produto.categoria_produtoM import CategoriaForm, Categoria
 
-from gaecookie.decorator import no_csrf
-from gaepermission.decorator import login_required, login_not_required
-from tekton.gae.middleware.json_middleware import JsonResponse
-import json
 from google.appengine.ext import ndb
+
+from routes.andris.categoria_produto.categoria_produtoM import CategoriaForm, Categoria
+from gaecookie.decorator import no_csrf
+from gaepermission.decorator import login_not_required
+from tekton.gae.middleware.json_middleware import JsonResponse
 
 @login_not_required
 @no_csrf
 def salvarCategoria(_resp,**campos):
+    print campos
     categoriaForm = CategoriaForm(**campos)
+    print categoriaForm
     erros = categoriaForm.validate()
     if erros:
         _resp.set_status(400)
@@ -25,18 +27,21 @@ def salvarCategoria(_resp,**campos):
 
 @login_not_required
 @no_csrf
-def editarCategoria(_resp,categoria_id,nomeCategoria):
-
-    categoriaForm = CategoriaForm(categoria_id,nomeCategoria)
+def editarCategoria(_resp,**campos):
+    '''
+    categoriaForm = CategoriaForm(**campos)
     erros = categoriaForm.validate()
     if erros:
         _resp.set_status(400)
         return JsonResponse(erros)
 
+    '''
+    categoria_id = campos["categoria_id"]
+    nomeCategoria = campos["nomeCategoria"]
     categoria = Categoria.get_by_id(int(categoria_id))
     categoria.nomeCategoria = nomeCategoria
     categoria.put()
-    dct = categoriaForm.fill_with_model(categoria)
+    dct = CategoriaForm().fill_with_model(categoria)
     return JsonResponse(dct)
 
 

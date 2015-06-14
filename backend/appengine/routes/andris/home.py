@@ -3,7 +3,6 @@ from __future__ import absolute_import, unicode_literals
 from config.template_middleware import TemplateResponse
 from gaecookie.decorator import no_csrf
 from gaepermission.decorator import login_not_required
-from categoria_produto.categoria_produtoM import *
 
 
 @login_not_required

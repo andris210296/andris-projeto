@@ -4,7 +4,7 @@
 
     {{ csrf_input() }}
 
-    {{ angular_input('Nova Categoria','nomeCategoria','categoria.nomeCategoria',errors.nomeCategoria,'fa fa-bars') }}
+    {{ angular_input('Nova Categoria','nomeCategoria','categoria_produto.nomeCategoria',errors.nomeCategoria,'fa fa-bars') }}
 
     {{ angular_button('Adicionar','submit','ng-click=salvarCategoria() ng-hide="salvandoFlag','btn-default','','fa fa-plus-square') }}
 
