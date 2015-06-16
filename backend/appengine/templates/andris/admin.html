@@ -128,17 +128,39 @@
 
                                                 <label>Jumbotron</label>
 
-                                                <a href="#" class="thumbnail">
-                                                    <img src="../static/img/fotonaodisponivel.jpg" alt="...">
-                                                </a>
+                                                <span class="thumbnail">
+                                                {% if arquivos %}
 
-                                                <p class="btn-add">
+                                                    {% for arq in arquivos %}
+                                                        <img src="{{ arq.img(64) }}" id="imgJumbo"  alt="..."/>
 
-                                                    <button type="button" class="btn btn-default">
+
+                                                        </li>
+                                                    {% endfor %}
+
+                                                    {% else %}
+                                                    <img src="../static/img/fotonaodisponivel.jpg" id="imgJumbo"  alt="..."/>
+
+
+                                                {% endif %}
+
+
+                                                </span>
+
+
+                                                <form action="{{ upload_path }}" method="post" enctype="multipart/form-data">
+                                                    {{ csrf_input() }}
+
+                                                    <input id="uploadInput" type="file" name="files" multiple="multiple"/>
+
+                                                    <button id ="btnUploadJumbotron" type="submit" class="btn btn-default">
                                                         <span class="fa fa-file-image-o" aria-hidden="true"></span> Carregar
                                                     </button>
 
-                                                </p>
+                                                </form>
+
+
+
 
 
 

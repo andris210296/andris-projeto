@@ -1,1 +1,1 @@
-/home/andris/PycharmProjects/projeto/backend/venv/dev_requirements.txt
+/home/andris/PycharmProjects/andris-projeto/backend/venv/dev_requirements.txt

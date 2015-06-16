@@ -1,1 +1,1 @@
-/home/andris/PycharmProjects/projeto/backend/venv/venv.sh
+/home/andris/PycharmProjects/andris-projeto/backend/venv/venv.sh

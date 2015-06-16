@@ -120,3 +120,51 @@ categoriaModulo.directive('categorialinha',function(){
     };
 
 });
+
+
+
+$(document).ready(function(){
+
+    var $btnJumbo = $('#btnUploadJumbotron');
+    var $imgJumbo = $('#imgJumbo');
+    var $inpUpload = $('#uploadInput');
+
+
+
+    //$imgJumbo.attr('src','../static/img/fotonaodisponivel.jpg');
+
+    var reader = new FileReader();
+
+    $inpUpload.change(function () {
+        readURL(this);
+    });
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+
+            reader.onload = function (e) {
+                $imgJumbo.attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+
+    $.get('/andris/updown/dowload', function (arquivo) {
+        $.each(arquivo, function (index, p) {
+            adicionarProduto(p);
+        });
+    });
+
+
+
+
+});
+
+
+
+
+
+
+

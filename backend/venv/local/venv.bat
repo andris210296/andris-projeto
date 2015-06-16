@@ -1,1 +1,1 @@
-/home/andris/PycharmProjects/projeto/backend/venv/venv.bat
+/home/andris/PycharmProjects/andris-projeto/backend/venv/venv.bat
